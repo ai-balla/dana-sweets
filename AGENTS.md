@@ -1,0 +1,1 @@
+For authorized storefront changes, commit and push to GitHub main and deploy website files with python deploy-ftp.py. Credentials are stored only in ignored ftp-config.local.json. Never commit, upload, log or display credentials. Upload only index.html, style.css, menu.js, app.js and assets/. Verify the remote index after upload.
