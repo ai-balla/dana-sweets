@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
 const {flavors,packages,piecePrice,boxPrice}=require('../menu.js');
-for(const f of flavors){assert.equal(piecePrice(f,'small'),f.premium?4:3);assert.equal(piecePrice(f,'large'),f.premium?8:7);}
+for(const f of flavors){assert.equal(piecePrice(f,'small'),(f.id==='pistachio'||f.premium)?4:3);assert.equal(piecePrice(f,'large'),f.premium?8:7);}
 for(const p of packages){const a=flavors.map(()=>0);a[0]=p.count;assert.equal(boxPrice(p,a),p.count*(p.size==='small'?3:7));a[0]=0;a[2]=p.count;assert.equal(boxPrice(p,a),p.count*(p.size==='small'?4:8));}
 assert.equal(boxPrice(packages[0],[10,0,0,0,0,10,0]),70);
 const nodes={},events={};function node(id){return nodes[id]??={value:'',open:false,textContent:'',innerHTML:'',addEventListener(t,fn){events[id+':'+t]=fn},scrollIntoView(){},focus(){},showModal(){this.open=true},close(){this.open=false}};}
@@ -12,3 +12,5 @@ events['order-items:click']({target:{closest:s=>s==='[data-cart]'?{dataset:{cart
 events['order-form:submit']({preventDefault(){}});const u=new URL(url);assert.equal(u.pathname,'/966507448979');assert(u.searchParams.get('text').includes('140 ريال'));assert(u.searchParams.get('text').includes('الكندر: 10'));
 events['order-items:click']({target:{closest:s=>s==='[data-remove]'?{dataset:{remove:'0'}}:null}});assert.equal(vm.runInContext('totals().price',ctx),0);
 console.log('PASS: all 7 flavor prices, 4 box sizes, mixed box pricing, incomplete-box guard, quantity totals, removal, WhatsApp recipient and price breakdown.');
+
+assert.equal(boxPrice(packages[0],[0,0,0,20,0,0,0]),80);assert.equal(boxPrice(packages[2],[0,0,0,6,0,0,0]),42);
