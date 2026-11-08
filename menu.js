@@ -2,7 +2,7 @@ const flavors=[
 {id:'lotus',name:'اللوتس',description:'نكهة بسكويت اللوتس الأصلية، كريمية وغنية.'},
 {id:'crunchy',name:'الكرانشي',description:'قرمشة الكراميل والتوفي لنكهة ممتعة.'},
 {id:'pecan',name:'البيكان',description:'بيكان محمّص مكرمل لمذاق غني.',premium:true},
-{id:'pistachio',smallPrice:4,name:'البيستاشيو',description:'طعم الفستق مع قطع الفستق المقرمشة.'},
+{id:'pistachio',smallPrice:4,premium:true,name:'البيستاشيو',description:'طعم الفستق مع قطع الفستق المقرمشة.'},
 {id:'nescafe',name:'النسكافيه',description:'مزيج القهوة الغني لعشاق المذاق المميز.'},
 {id:'kinder',name:'الكندر',description:'شوكولاتة كندر الحليبية مع قطع كندر.',premium:true},
 {id:'oreo',name:'الأوريو',description:'كريمة أوريو مع قطع البسكويت المقرمشة.'}];

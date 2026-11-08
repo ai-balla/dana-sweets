@@ -13,4 +13,4 @@ events['order-form:submit']({preventDefault(){}});const u=new URL(url);assert.eq
 events['order-items:click']({target:{closest:s=>s==='[data-remove]'?{dataset:{remove:'0'}}:null}});assert.equal(vm.runInContext('totals().price',ctx),0);
 console.log('PASS: all 7 flavor prices, 4 box sizes, mixed box pricing, incomplete-box guard, quantity totals, removal, WhatsApp recipient and price breakdown.');
 
-assert.equal(boxPrice(packages[0],[0,0,0,20,0,0,0]),80);assert.equal(boxPrice(packages[2],[0,0,0,6,0,0,0]),42);
+assert.equal(boxPrice(packages[0],[0,0,0,20,0,0,0]),80);assert.equal(boxPrice(packages[2],[0,0,0,6,0,0,0]),48);
